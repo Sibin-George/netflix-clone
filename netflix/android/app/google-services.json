@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "986143614073",
+    "project_id": "netflix-995cd",
+    "storage_bucket": "netflix-995cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986143614073:android:23db733b1bf6435923e0a8",
+        "android_client_info": {
+          "package_name": "com.example.netflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986143614073-f14dqipguqks7942o6hrbdikl47fbcl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFZMx7fRMNTCwBU6vfYbspVFdIsn7SduU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986143614073-f14dqipguqks7942o6hrbdikl47fbcl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
