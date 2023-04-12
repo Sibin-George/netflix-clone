@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/widgets/bottomsheet/customiconb.dart';
-import 'package:netflix/widgets/constants.dart';
+import 'package:netflix/widgets/bottomsheet/customiconwidget.dart';
+import 'package:netflix/core/constants.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
-class BottomSheetCard extends StatefulWidget {
-  const BottomSheetCard({super.key});
+class BottomSheetCard extends StatelessWidget {
+  final String image;
+  final String title;
+  final String overview;
+  const BottomSheetCard(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.overview});
 
-  @override
-  State<BottomSheetCard> createState() => _BottomSheetState();
-}
-
-class _BottomSheetState extends State<BottomSheetCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +29,7 @@ class _BottomSheetState extends State<BottomSheetCard> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(3),
                         image: DecorationImage(
-                          image: AssetImage('assets/wakanda.jpg'),
+                          image: NetworkImage(image),
                           fit: BoxFit.cover,
                         )),
                     width: 80,
@@ -42,27 +45,27 @@ class _BottomSheetState extends State<BottomSheetCard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Expanded(
-                              flex: 0,
-                              child: Text(
-                                'Wakanda forever',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                                softWrap: true,
-                                maxLines: 2,
-                              ),
-                            ),
+                            Container(
+                                width: 220,
+                                child: AutoSizeText(
+                                  title,
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                )),
                             kheight5,
                             Text(
                               '2023 U/A 16+ 2h 22m',
-                              style: TextStyle(color: kgrey),
+                              style: TextStyle(color: kgrey, fontSize: 11),
                             ),
                             kheight5,
                             Expanded(
-                              child: Text(
-                                  'jfdsfjskf fjsfjdk djkfsjflk dfsjjfksk fksj fl sfkjsfklj fjslkjfk lfslkjsll lfjlksjfl',
-                                  softWrap: true),
-                            ),
+                                child: AutoSizeText(
+                              overview,
+                              maxLines: 5,
+                              style: TextStyle(color: Colors.grey[300]),
+                            )),
                           ],
                         ),
                       ),

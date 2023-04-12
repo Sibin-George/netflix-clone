@@ -1,11 +1,24 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/widgets/constants.dart';
-import 'package:netflix/widgets/videowidget.dart';
+import 'package:netflix/core/constants.dart';
+import 'package:netflix/widgets/videowidget_new&hot.dart';
 
 class ComingSoonWidget extends StatelessWidget {
-  final pictureUrl;
-  final title;
-  const ComingSoonWidget({super.key, required this.pictureUrl, required this.title});
+  final String id;
+  final String month;
+  final String day;
+  final String posterpath;
+  final String moviename;
+  final String description;
+  const ComingSoonWidget({
+    super.key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterpath,
+    required this.moviename,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +30,13 @@ class ComingSoonWidget extends StatelessWidget {
           height: 400,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                'FEB',
+                month,
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
               Text(
-                '11',
+                day,
                 style: TextStyle(fontSize: 30, letterSpacing: -2),
               )
             ],
@@ -35,20 +48,25 @@ class ComingSoonWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              VideoWidget(image: pictureUrl,),
+              VideoWidget(
+                image: posterpath,
+              ),
               kheight10,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Container(height: 70,width: 190,
-                     child: Center(
-                       child: Text(
-                        title,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),
-                                       ),
-                     ),
-                   ),
-                  Spacer(),
+                  Container(
+                      height: 50,
+                      width: 190,
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: AutoSizeText(
+                        moviename,
+                        style: TextStyle(
+                            fontSize: 25,
+                            overflow: TextOverflow.clip,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'ShadowsIntoLight'),
+                      )),
                   Column(
                     children: const [
                       Icon(
@@ -72,18 +90,24 @@ class ComingSoonWidget extends StatelessWidget {
                   ),
                   kwidth10
                 ],
-              ),kheight10,
-              const Text('Coming on Friday'),
+              ),
               kheight10,
-              const Text(
-                'Black Adams',
+              Text(
+                'Coming on $day $month',
+                style: TextStyle(color: Colors.grey, fontSize: 12),
+              ),
+              kheight5,
+              Text(
+                moviename,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               kheight5,
-              const Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-                style: TextStyle(color: Colors.grey),
-              )
+              Expanded(
+                  child: AutoSizeText(
+                description,
+                style: TextStyle(color: Colors.grey[300]),
+              )),
+              kheight20
             ],
           ),
         )

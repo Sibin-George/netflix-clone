@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/widgets/constants.dart';
+import 'package:netflix/core/constants.dart';
 
 class CustomIconb extends StatelessWidget {
   const CustomIconb({

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/widgets/constants.dart';
+import 'package:netflix/core/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'login/loginpage.dart';
+import '../login/loginpage.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});

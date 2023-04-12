@@ -4,7 +4,14 @@ import 'package:netflix/widgets/bottomsheet/bottomsheet.dart';
 
 class NumberCard extends StatelessWidget {
   final int index;
-  NumberCard({super.key, required this.index});
+  
+  
+  final List<String>title;
+  
+  final List<String>overview;
+  
+  final List<String>imageUrl;
+  NumberCard({super.key, required this.index, required this.imageUrl, required this.title, required this.overview});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +22,7 @@ class NumberCard extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(12))),
             context: context,
             builder: (BuildContext context) {
-              return BottomSheetCard();
+              return BottomSheetCard(image: imageUrl[index],overview: overview[index],title:title[index] ,);
             });
       },
       child: Stack(
@@ -41,10 +48,9 @@ class NumberCard extends StatelessWidget {
                         spreadRadius: 20.0,
                       ),
                     ],
-                    image: const DecorationImage(
+                    image:  DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://www.themoviedb.org/t/p/w220_and_h330_face/sv1xJUazXeYqALzczSZ3O6nkH75.jpg'))),
+                        image: NetworkImage(imageUrl[index]))),
               )
             ],
           ),
@@ -57,7 +63,7 @@ class NumberCard extends StatelessWidget {
                   child: Text(
                     "${index + 1}",
                     style: const TextStyle(
-                      fontSize: 100,
+                      fontSize: 100,letterSpacing: -15,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),

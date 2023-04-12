@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/Screens/New&/newandhot.dart';
-import 'package:netflix/widgets/constants.dart';
-import 'package:netflix/Screens/fastlaugh.dart';
+import 'package:netflix/core/constants.dart';
+import 'package:netflix/Screens/fastlaugh/fastlaugh.dart';
 import 'package:netflix/Screens/Home/homescreen.dart';
 import 'package:netflix/Screens/Search/search.dart';
 
@@ -24,16 +24,21 @@ class BottomNavbar extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           selectedItemColor: kwhite,
           unselectedItemColor: kgrey,
-          unselectedIconTheme:const IconThemeData(color: kgrey),
-          selectedIconTheme:const IconThemeData(color: kwhite),unselectedFontSize: 9,selectedFontSize: 10,
+          unselectedIconTheme: const IconThemeData(color: kgrey),
+          selectedIconTheme: const IconThemeData(color: kwhite),
+          unselectedFontSize: 9,
+          selectedFontSize: 10,
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_filled), label: 'Home',),
+              icon: Icon(Icons.home_filled),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.smart_display_outlined), label: 'New & Hot'),
-            BottomNavigationBarItem(icon: Icon(Icons.emoji_emotions_outlined), label: 'Fast Laugh'),
-            BottomNavigationBarItem(icon: Icon(Icons.search_rounded), label: 'Search'),
-           
+            BottomNavigationBarItem(
+                icon: Icon(Icons.emoji_emotions_outlined), label: 'Fast Laugh'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.search_rounded), label: 'Search'),
           ],
         );
       },
@@ -42,15 +47,13 @@ class BottomNavbar extends StatelessWidget {
 }
 
 class MainScreen extends StatelessWidget {
- const MainScreen({super.key});
+  MainScreen({super.key});
 
-  final _screens = const[
+  final _screens = [
     ScreenHome(),
     ScreenNewandhot(),
     ScreenFastlaugh(),
     ScreenSearch(),
-   
-  
   ];
   @override
   Widget build(BuildContext context) {
@@ -60,7 +63,8 @@ class MainScreen extends StatelessWidget {
         builder: (context, int index, child) {
           return _screens[index];
         },
-      ),bottomNavigationBar:const BottomNavbar(),
+      ),
+      bottomNavigationBar: const BottomNavbar(),
     );
   }
 }

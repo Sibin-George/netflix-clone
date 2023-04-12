@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/main.dart';
 import 'package:netflix/widgets/bottomnavigator.dart';
-import 'package:netflix/widgets/constants.dart';
+import 'package:netflix/core/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final validate = _formKey.currentState!.validate();
     if (!validate) {
       return;
-    } //show loading circle
+    } //show loading circleaqaQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaqqqqqqqqqqqqqqqqqqqqqqqqa
     showDialog(
         context: context,
         builder: (context) {

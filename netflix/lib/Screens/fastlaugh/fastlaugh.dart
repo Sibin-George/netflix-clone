@@ -45,7 +45,10 @@ class VideoList extends StatelessWidget {
                 backgroundColor: Colors.black.withOpacity(0.5),
                 child: IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.volume_off,color: Colors.white,),
+                  icon: Icon(
+                    Icons.volume_off,
+                    color: Colors.white,
+                  ),
                 ),
               ),
 
@@ -54,7 +57,7 @@ class VideoList extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
                   Padding(
-                    padding:  EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     child: CircleAvatar(
                         backgroundImage: NetworkImage(
                           'https://www.themoviedb.org/t/p/w250_and_h141_face/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg',

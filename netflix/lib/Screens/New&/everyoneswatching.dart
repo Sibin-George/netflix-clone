@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/widgets/constants.dart';
+import 'package:netflix/core/constants.dart';
 import 'package:netflix/widgets/customicon.dart';
-import 'package:netflix/widgets/videowidget.dart';
+import 'package:netflix/widgets/videowidget_new&hot.dart';
 
 class EveryonesWatching extends StatelessWidget {
-  const EveryonesWatching({super.key});
+  final String backdropPath;
+  final String moviename;
+  final String description;
+  const EveryonesWatching(
+      {super.key,
+      required this.backdropPath,
+      required this.moviename,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -12,17 +19,18 @@ class EveryonesWatching extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         kheight10,
-        const Text(
-          'Black Adams',
-          style: TextStyle(fontWeight: FontWeight.bold),
+         Text(
+         moviename,
+          style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
         ),
         kheight5,
-        const Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+         Text(description,
           style: TextStyle(color: Colors.grey),
         ),
         kheight20,
-        VideoWidget(image: "",),
+        VideoWidget(
+          image:backdropPath,
+        ),
         kheight10,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -46,7 +54,7 @@ class EveryonesWatching extends StatelessWidget {
                 icon: Icons.play_arrow),
             kwidth10
           ],
-        )
+        ),kheight30
       ],
     );
   }
